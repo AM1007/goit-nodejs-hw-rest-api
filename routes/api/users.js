@@ -13,6 +13,7 @@ const router = express.Router();
 router.post("/signup", validation(joiSignupSchema), ctrlWrapper(ctrl.signup));
 router.post("/login", validation(joiLoginSchema), ctrlWrapper(ctrl.login));
 router.get("/current", authenticate, ctrlWrapper(ctrl.getCurrent));
+router.get("/verify/:verificationToken", ctrlWrapper(ctrl.verifyEmail));
 router.get("/logout", authenticate, ctrlWrapper(ctrl.logout));
 router.patch(
   "/avatars",
